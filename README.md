@@ -1,34 +1,45 @@
 # fontComicSansSM
 
-ソーシャルメディアを真面目に読みすぎないためのChrome拡張機能です。  
-X（Twitter）やYouTubeの表示フォントを「Comic Sans MS」に置き換えます。
+A Chrome extension designed to help you not take social media so seriously.  
+Quietly replaces the display font on X (Twitter) and YouTube with **Comic Sans MS**.
 
 ---
 
-## コンセプト
-ソーシャルメディアなんて、そんなに真面目に読む物でもないはずです。
+## Concept
 
-タイムラインに流れる強い言葉や深刻そうな議論を、少し肩の力を抜いて受け流せるように。  
-文字がComic Sansになるだけで、画面全体の緊張感がすっと和らぎます。
+Social media was never meant to be taken this seriously.
 
----
+Scrolling through your timeline, it is easy to get caught up in harsh words, heated rhetoric, and endless debates. Seeing those same words rendered in Comic Sans takes the edge off instantly.
 
-## 特徴
-- **Comic Sans MS 専属仕様**:
-  タイムラインやコメント欄のテキストをComic Sans MSで表示します。
-- **レトロな装飾オプション**:
-  - ワードアート風 虹色テキスト（ダークトーンのWebセーフグラデーション 🌈）
-  - クラシックWebリンク（未読は青 `#0000FF`＋下線、既読は紫 `#660099`）
-- **完全Webセーフカラー（216色）の操作パネル**:
-  90年代のWebや初期Windowsを意識した、素朴なUIです。
-- **サイト別切り替え**:
-  X（Twitter）、YouTubeを個別に切り替え可能です。
+It is a modest tool to help you take a step back, breathe a little easier, and view the internet with a lighter heart.
 
 ---
 
-## 🚀 読み込み方法（開発者モード）
-1. Google Chromeで `chrome://extensions/` を開く
-2. 右上の「デベロッパーモード」をONにする
-3. 「パッケージ化されていない拡張機能を読み込む」をクリック
-4. このフォルダ（`dasaifontsocial`）を選択
-5. ツールバーにネットスケープ風（Sansの「S」）のアイコンが表示されれば完了です！
+## Features
+
+- **Comic Sans MS Override**:
+  Replaces timeline posts and YouTube comments/titles with Comic Sans MS.
+- **Subtle Retro Options**:
+  - 90s WordArt rainbow text (toned-down, retro web-safe palette 🌈)
+  - Classic web links (classic blue `#0000FF` and visited purple `#660099`)
+- **216 Web-Safe Color UI**:
+  A compact popup inspired by early web browsers and 90s operating systems, styled exclusively with authentic web-safe colors.
+- **Per-Site Toggles**:
+  Easily toggle X (Twitter) or YouTube on and off independently.
+
+---
+
+## 🚀 Installation (Developer Mode)
+
+1. Open `chrome://extensions/` in Google Chrome.
+2. Enable **Developer mode** in the top-right corner.
+3. Click **Load unpacked**.
+4. Select this directory (`fontComicSansSM`).
+5. The retro Netscape-style "S" icon will appear in your toolbar.
+
+---
+
+## Links
+
+- **Official Page & Privacy Policy**: [https://teacola.github.io/fontComicSansSM/](https://teacola.github.io/fontComicSansSM/)
+- **GitHub Repository**: [https://github.com/TEACOLA/fontComicSansSM](https://github.com/TEACOLA/fontComicSansSM)
