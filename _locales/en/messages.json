@@ -1,0 +1,10 @@
+{
+  "appName": {
+    "message": "fontComicSansSM",
+    "description": "Extension name"
+  },
+  "appDesc": {
+    "message": "A quiet reminder not to take social media too seriously. Replaces fonts on X and YouTube with Comic Sans MS.",
+    "description": "Extension description"
+  }
+}

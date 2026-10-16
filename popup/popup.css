@@ -1,0 +1,233 @@
+/* 
+  Dasai Font Social - Popup Stylesheet
+  Strictly 216 Web Safe Colors Palette:
+  Components use only {00, 33, 66, 99, CC, FF}
+*/
+
+:root {
+  --ws-black: #000000;
+  --ws-white: #FFFFFF;
+  --ws-gray-light: #CCCCCC;
+  --ws-gray-mid: #999999;
+  --ws-gray-dark: #666666;
+  --ws-gray-deep: #333333;
+  
+  --ws-navy: #000099;
+  --ws-blue: #0033CC;
+  --ws-cyan: #00FFFF;
+  --ws-green: #009933;
+  --ws-yellow: #FFFF00;
+  --ws-cream: #FFFFCC;
+  --ws-red: #FF3333;
+  --ws-magenta: #FF00FF;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 320px;
+  background-color: var(--ws-gray-light);
+  color: var(--ws-black);
+  font-family: 'Tahoma', 'MS Sans Serif', 'Segoe UI', 'MS PGothic', sans-serif;
+  font-size: 11px;
+  user-select: none;
+  padding: 4px;
+}
+
+/* Classic Window Container */
+.window {
+  background-color: var(--ws-gray-light);
+  border: 2px solid;
+  border-color: var(--ws-white) var(--ws-gray-dark) var(--ws-gray-dark) var(--ws-white);
+  box-shadow: 1px 1px 0 var(--ws-black);
+}
+
+/* Window Title Bar */
+.title-bar {
+  background: linear-gradient(90deg, var(--ws-navy), var(--ws-blue));
+  padding: 3px 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title-bar-text {
+  color: var(--ws-white);
+  font-weight: bold;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.title-bar-icon {
+  width: 14px;
+  height: 14px;
+  image-rendering: pixelated;
+  flex-shrink: 0;
+}
+
+.title-bar-controls {
+  display: flex;
+  gap: 2px;
+}
+
+.title-bar-controls button {
+  width: 16px;
+  height: 14px;
+  font-size: 9px;
+  line-height: 10px;
+  padding: 0;
+  background-color: var(--ws-gray-light);
+  border: 1px solid;
+  border-color: var(--ws-white) var(--ws-black) var(--ws-black) var(--ws-white);
+  cursor: pointer;
+  color: var(--ws-black);
+  font-family: monospace;
+  font-weight: bold;
+}
+
+.title-bar-controls button:active {
+  border-color: var(--ws-black) var(--ws-white) var(--ws-white) var(--ws-black);
+}
+
+/* Window Body */
+.window-body {
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Fieldsets */
+
+/* Fieldsets */
+fieldset.bevel-inset {
+  border: 2px solid;
+  border-color: var(--ws-gray-dark) var(--ws-white) var(--ws-white) var(--ws-gray-dark);
+  padding: 6px 8px;
+  margin: 0;
+}
+
+.fieldset-legend {
+  font-weight: bold;
+  padding: 0 4px;
+  color: var(--ws-navy);
+}
+
+/* Preview Box */
+.preview-box {
+  background-color: var(--ws-cream);
+  min-height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.preview-text {
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--ws-black);
+  transition: all 0.2s ease;
+}
+
+.preview-text.wordart-rainbow {
+  background: linear-gradient(90deg, #CC0033 0%, #CC6600 16%, #CC9900 33%, #006633 50%, #006699 66%, #003399 83%, #660099 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+  font-weight: bold !important;
+}
+
+.preview-link {
+  color: var(--ws-blue);
+  -webkit-text-fill-color: var(--ws-blue);
+  text-decoration: underline;
+  cursor: pointer;
+  margin-left: 4px;
+}
+
+.preview-link.retro-link {
+  color: #0000FF !important;
+  -webkit-text-fill-color: #0000FF !important;
+  text-decoration: underline !important;
+  font-weight: normal;
+}
+
+.preview-link.retro-link:visited {
+  color: #660099 !important;
+  -webkit-text-fill-color: #660099 !important;
+}
+
+.preview-link.retro-link:active {
+  color: #FF0000 !important;
+  -webkit-text-fill-color: #FF0000 !important;
+}
+
+/* Checkbox and Grid */
+.checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 3px 0;
+  font-size: 11px;
+}
+
+.checkbox-row input[type="checkbox"],
+.site-toggle input[type="checkbox"] {
+  cursor: pointer;
+}
+
+.sites-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px 6px;
+  font-size: 11px;
+}
+
+.site-toggle {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+
+/* Decorative Palette Bar (All 100% Web-Safe) */
+.palette-bar {
+  display: flex;
+  height: 6px;
+  border: 1px solid var(--ws-gray-dark);
+}
+
+.palette-bar span {
+  flex: 1;
+}
+
+/* Status Bar */
+.status-bar {
+  display: flex;
+  gap: 2px;
+}
+
+.bevel-inset-status {
+  padding: 2px 4px;
+  border: 1px solid;
+  border-color: var(--ws-gray-dark) var(--ws-white) var(--ws-white) var(--ws-gray-dark);
+}
+
+.status-bar-field {
+  font-size: 10px;
+  color: var(--ws-gray-deep);
+}
+
+.status-right {
+  margin-left: auto;
+  font-weight: bold;
+  color: var(--ws-green);
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>fontComicSansSM</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="window">
+    <!-- Window Title Bar (Web Safe #000099) -->
+    <div class="title-bar">
+      <div class="title-bar-text">
+        <img src="../icons/icon-16.png" alt="icon" class="title-bar-icon" width="16" height="16">
+        <span>fontComicSansSM v2.2</span>
+      </div>
+      <div class="title-bar-controls">
+        <button aria-label="Minimize">_</button>
+        <button aria-label="Maximize">□</button>
+        <button aria-label="Close">×</button>
+      </div>
+    </div>
+
+    <!-- Window Body (Web Safe #CCCCCC) -->
+    <div class="window-body">
+
+      <!-- Preview Area -->
+      <fieldset class="bevel-inset preview-box">
+        <legend class="fieldset-legend">Preview</legend>
+        <p id="previewText" class="preview-text">All your base are belong to us</p>
+      </fieldset>
+
+      <!-- Retro Effects Options -->
+      <fieldset class="bevel-inset">
+        <legend class="fieldset-legend">Retro Effects</legend>
+        <div class="checkbox-row">
+          <input type="checkbox" id="wordArtCheck">
+          <label for="wordArtCheck">90s WordArt Rainbow Text 🌈</label>
+        </div>
+        <div class="checkbox-row">
+          <input type="checkbox" id="retroLinkCheck">
+          <label for="retroLinkCheck">Classic Web Links (Blue/Purple)</label>
+        </div>
+      </fieldset>
+
+      <!-- Supported Sites -->
+      <fieldset class="bevel-inset">
+        <legend class="fieldset-legend">Target Sites</legend>
+        <div class="sites-grid">
+          <label class="site-toggle">
+            <input type="checkbox" id="site-x" checked data-site="x.com"> X (Twitter)
+          </label>
+          <label class="site-toggle">
+            <input type="checkbox" id="site-youtube" checked data-site="youtube.com"> YouTube
+          </label>
+        </div>
+      </fieldset>
+
+      <!-- Retro Web-Safe Palette Bar (Decorative) -->
+      <div class="palette-bar">
+        <span style="background-color:#CC0033;"></span>
+        <span style="background-color:#CC6600;"></span>
+        <span style="background-color:#CC9900;"></span>
+        <span style="background-color:#006633;"></span>
+        <span style="background-color:#006699;"></span>
+        <span style="background-color:#003399;"></span>
+        <span style="background-color:#660099;"></span>
+      </div>
+
+      <!-- Status Bar -->
+      <div class="status-bar bevel-inset-status">
+        <p class="status-bar-field" id="statusMessage">Comic Sans: ACTIVE</p>
+        <p class="status-bar-field status-right">READY</p>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Extension packaging
+*.zip
+*.crx
+
+# Python
+__pycache__/
+*.pyc
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp

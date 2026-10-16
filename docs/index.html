@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>fontComicSansSM - ソーシャルメディアを真面目に読みすぎないためのChrome拡張機能</title>
+  <meta name="description" content="X（Twitter）やYouTubeのフォントをComic Sans MSに置き換え、タイムラインの緊張感を和らげるChrome拡張機能。">
+  <link rel="icon" type="image/png" href="icon-128.png">
+  <style>
+    :root {
+      --ws-navy: #000099;
+      --ws-blue: #0033CC;
+      --ws-gray-light: #CCCCCC;
+      --ws-gray-dark: #666666;
+      --ws-cream: #FFFFCC;
+      --ws-white: #FFFFFF;
+      --ws-black: #111111;
+      --bg-page: #ECE9D8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-page);
+      color: var(--ws-black);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+      line-height: 1.7;
+      padding: 24px 16px;
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    /* Window Style Container */
+    .retro-window {
+      background-color: var(--ws-gray-light);
+      border: 3px solid;
+      border-color: var(--ws-white) var(--ws-gray-dark) var(--ws-gray-dark) var(--ws-white);
+      box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.4);
+      margin-bottom: 32px;
+    }
+
+    .window-titlebar {
+      background: linear-gradient(90deg, var(--ws-navy), var(--ws-blue));
+      padding: 6px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--ws-white);
+      font-weight: bold;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+    }
+
+    .window-titlebar-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .window-titlebar-left img {
+      width: 18px;
+      height: 18px;
+      image-rendering: pixelated;
+    }
+
+    .window-controls {
+      display: flex;
+      gap: 4px;
+    }
+
+    .window-controls span {
+      display: inline-block;
+      width: 16px;
+      height: 14px;
+      background: var(--ws-gray-light);
+      border: 1px solid;
+      border-color: var(--ws-white) var(--ws-black) var(--ws-black) var(--ws-white);
+      text-align: center;
+      line-height: 12px;
+      font-size: 10px;
+      color: var(--ws-black);
+      font-family: monospace;
+      font-weight: bold;
+    }
+
+    .window-content {
+      padding: 28px 24px;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .hero-icon {
+      width: 80px;
+      height: 80px;
+      image-rendering: pixelated;
+      margin-bottom: 16px;
+      box-shadow: 2px 2px 0 rgba(0,0,0,0.3);
+      border: 2px solid;
+      border-color: var(--ws-white) var(--ws-gray-dark) var(--ws-gray-dark) var(--ws-white);
+    }
+
+    h1 {
+      font-size: 26px;
+      margin-bottom: 8px;
+      color: var(--ws-navy);
+      font-family: 'Comic Sans MS', 'Comic Sans', cursive, sans-serif;
+    }
+
+    .tagline {
+      font-size: 16px;
+      color: #444;
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+
+    .sub-tagline {
+      font-size: 13px;
+      color: #666;
+    }
+
+    /* Inset Panels */
+    .inset-panel {
+      background: var(--ws-white);
+      border: 2px solid;
+      border-color: var(--ws-gray-dark) var(--ws-white) var(--ws-white) var(--ws-gray-dark);
+      padding: 16px 20px;
+      margin-bottom: 24px;
+    }
+
+    .preview-box {
+      background-color: var(--ws-cream);
+      text-align: center;
+      padding: 20px;
+      border: 2px solid;
+      border-color: var(--ws-gray-dark) var(--ws-white) var(--ws-white) var(--ws-gray-dark);
+      margin-bottom: 24px;
+    }
+
+    .preview-label {
+      font-size: 11px;
+      color: #666;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .preview-quote {
+      font-family: 'Comic Sans MS', 'Comic Sans', cursive, sans-serif;
+      font-size: 20px;
+      color: var(--ws-navy);
+      font-weight: bold;
+    }
+
+    /* Section Styles */
+    h2 {
+      font-size: 17px;
+      color: var(--ws-navy);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      border-bottom: 2px solid var(--ws-gray-light);
+      padding-bottom: 6px;
+    }
+
+    p {
+      margin-bottom: 12px;
+      font-size: 14px;
+    }
+
+    ul {
+      margin-left: 20px;
+      margin-bottom: 16px;
+      font-size: 14px;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    /* Palette Bar */
+    .palette-bar {
+      display: flex;
+      height: 8px;
+      border: 1px solid var(--ws-gray-dark);
+      margin-top: 24px;
+    }
+
+    .palette-bar span {
+      flex: 1;
+    }
+
+    /* Footer / Links */
+    .footer {
+      text-align: center;
+      font-size: 12px;
+      color: #777;
+      margin-top: 24px;
+    }
+
+    .footer a {
+      color: var(--ws-blue);
+      text-decoration: underline;
+    }
+
+    /* Lang Selector */
+    .lang-tabs {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 16px;
+      justify-content: flex-end;
+    }
+
+    .lang-btn {
+      padding: 4px 10px;
+      font-size: 12px;
+      background: var(--ws-gray-light);
+      border: 2px solid;
+      border-color: var(--ws-white) var(--ws-gray-dark) var(--ws-gray-dark) var(--ws-white);
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .lang-btn.active {
+      border-color: var(--ws-gray-dark) var(--ws-white) var(--ws-white) var(--ws-gray-dark);
+      background: #E0E0E0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="retro-window">
+      <!-- Window Title Bar -->
+      <div class="window-titlebar">
+        <div class="window-titlebar-left">
+          <img src="icon-128.png" alt="icon">
+          <span>fontComicSansSM - Official Site</span>
+        </div>
+        <div class="window-controls">
+          <span>_</span>
+          <span>□</span>
+          <span>×</span>
+        </div>
+      </div>
+
+      <!-- Window Body -->
+      <div class="window-content">
+
+        <!-- Language Switcher -->
+        <div class="lang-tabs">
+          <button class="lang-btn active" onclick="switchLang('ja')">日本語</button>
+          <button class="lang-btn" onclick="switchLang('en')">English</button>
+        </div>
+
+        <!-- Hero Section -->
+        <div class="hero">
+          <img src="icon-128.png" alt="fontComicSansSM logo" class="hero-icon">
+          <h1>fontComicSansSM</h1>
+          <p class="tagline" data-lang="ja">ソーシャルメディアなんて、そんなに真面目に読む物でもないはずです。</p>
+          <p class="tagline" data-lang="en" style="display:none;">Social media was never meant to be taken this seriously.</p>
+          <p class="sub-tagline" data-lang="ja">X（Twitter）やYouTubeのフォントを「Comic Sans MS」に置き換えるChrome拡張機能</p>
+          <p class="sub-tagline" data-lang="en" style="display:none;">A Chrome extension that replaces fonts on X (Twitter) & YouTube with Comic Sans MS.</p>
+        </div>
+
+        <!-- Simulated Preview Box -->
+        <div class="preview-box">
+          <div class="preview-label">Live Preview</div>
+          <div class="preview-quote" id="quoteText">All your base are belong to us</div>
+        </div>
+
+        <!-- Japanese Content -->
+        <div id="content-ja">
+          <h2>Concept</h2>
+          <p>
+            タイムラインを眺めていると、どうしても強い言葉や深刻そうな議論に気を取られてしまいがちです。
+            文字通りの意味を重く受け止めすぎず、少し距離を置いて眺めるために、この拡張機能を作りました。
+          </p>
+          <p>
+            見慣れたタイムラインの文字がComic Sansになるだけで、画面全体の緊張感が少し和らぎます。
+            SNSを深刻に捉えすぎず、気楽に付き合うための小さな道具としてお使いください。
+          </p>
+
+          <h2>Features</h2>
+          <ul>
+            <li><strong>Comic Sans MS への置き換え</strong>: X（Twitter）のタイムラインやYouTubeのコメント欄・タイトルの文字をComic Sans MSで表示します。</li>
+            <li><strong>レトロ装飾オプション</strong>: 90sワードアート風の虹色グラデーションや、懐かしいクラシックWebリンク（未読青／既読紫）に切り替え可能。</li>
+            <li><strong>常時有効・サイト別切り替え</strong>: インストール後すぐに動作。ポップアップからサイトごとのON/OFFも可能です。</li>
+            <li><strong>90年代WebセーフカラーUI</strong>: 216色Webセーフカラーのみで構成された素朴な操作パネル。</li>
+          </ul>
+
+          <h2 id="privacy">プライバシーポリシー (Privacy Policy)</h2>
+          <div class="inset-panel">
+            <p><strong>個人情報の収集について</strong></p>
+            <p>本拡張機能「fontComicSansSM」は、利用者の個人情報、閲覧履歴、入力情報（キーストロークやメッセージ内容など）を収集、追跡、記録、外部送信することは一切ありません。</p>
+            
+            <p><strong>使用している権限について</strong></p>
+            <ul>
+              <li><code>storage</code>: 装飾オプションやサイトごとの有効・無効状態をブラウザ内に保存するためにのみ使用します。</li>
+              <li><code>host_permissions</code> (<code>twitter.com</code>, <code>x.com</code>, <code>youtube.com</code>): 指定サイトのWebページ上でフォント表示をComic Sans MSに置き換えるCSSスタイルを適用するためにのみ使用します。</li>
+            </ul>
+
+            <p>すべての処理は利用者のブラウザ（ローカル環境）内で完結します。</p>
+          </div>
+        </div>
+
+        <!-- English Content -->
+        <div id="content-en" style="display:none;">
+          <h2>Concept</h2>
+          <p>
+            Scrolling through your timeline, it is easy to get caught up in heated arguments, intense rhetoric, and endless debates.
+            This extension was created as a gentle reminder to take a step back and view it all with a lighter heart.
+          </p>
+          <p>
+            Seeing intense or dramatic words rendered in Comic Sans takes the edge off instantly.
+            It is a modest tool to help you breathe a little easier and not take the internet so personally.
+          </p>
+
+          <h2>Features</h2>
+          <ul>
+            <li><strong>Comic Sans MS Override</strong>: Replaces timeline posts and YouTube comments/titles with Comic Sans MS.</li>
+            <li><strong>Subtle Retro Effects</strong>: 90s WordArt rainbow text and classic blue/purple web links.</li>
+            <li><strong>Always On & Per-Site Toggles</strong>: Works immediately after install. Easily toggle supported sites anytime.</li>
+            <li><strong>Nostalgic 216 Web-Safe UI</strong>: Styled exclusively with genuine 90s web-safe colors.</li>
+          </ul>
+
+          <h2 id="privacy-en">Privacy Policy</h2>
+          <div class="inset-panel">
+            <p><strong>Data Collection & Privacy</strong></p>
+            <p>fontComicSansSM does not collect, track, store, or transmit any user personal data, browsing history, keystrokes, or message content. Your privacy is fully respected.</p>
+            
+            <p><strong>Permissions Justification</strong></p>
+            <ul>
+              <li><code>storage</code>: Used solely to save your local UI preferences (retro effects and site toggles) within your browser.</li>
+              <li><code>host_permissions</code> (<code>twitter.com</code>, <code>x.com</code>, <code>youtube.com</code>): Used solely to inject CSS stylesheet overrides to render Comic Sans MS on target sites.</li>
+            </ul>
+
+            <p>All operations are performed entirely offline and locally within your browser.</p>
+          </div>
+        </div>
+
+        <!-- Decorative Palette Bar -->
+        <div class="palette-bar">
+          <span style="background-color:#CC0033;"></span>
+          <span style="background-color:#CC6600;"></span>
+          <span style="background-color:#CC9900;"></span>
+          <span style="background-color:#006633;"></span>
+          <span style="background-color:#006699;"></span>
+          <span style="background-color:#003399;"></span>
+          <span style="background-color:#660099;"></span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <p>&copy; 2026 fontComicSansSM. All rights reserved.</p>
+    </div>
+  </div>
+
+  <script>
+    const quotes = [
+      "All your base are belong to us",
+      "You've got mail!",
+      "Don't feed the trolls",
+      "kita---(*ﾟ∀ﾟ*)---!!",
+      ":-)"
+    ];
+
+    let qIndex = 0;
+    const qEl = document.getElementById('quoteText');
+    setInterval(() => {
+      qIndex = (qIndex + 1) % quotes.length;
+      qEl.textContent = quotes[qIndex];
+    }, 2800);
+
+    function switchLang(lang) {
+      const isJa = lang === 'ja';
+      document.getElementById('content-ja').style.display = isJa ? 'block' : 'none';
+      document.getElementById('content-en').style.display = isJa ? 'none' : 'block';
+
+      document.querySelectorAll('[data-lang="ja"]').forEach(el => el.style.display = isJa ? 'block' : 'none');
+      document.querySelectorAll('[data-lang="en"]').forEach(el => el.style.display = isJa ? 'none' : 'block');
+
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.textContent.includes(isJa ? '日本語' : 'English'));
+      });
+    }
+  </script>
+</body>
+</html>
