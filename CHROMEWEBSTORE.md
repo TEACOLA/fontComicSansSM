@@ -19,7 +19,7 @@ Chrome Web Store公開用メタデータおよび掲載情報です。
   A quiet reminder not to take social media too seriously. Replaces fonts on X and YouTube with Comic Sans MS.
   ```
 - **Category**: Lifestyle / Utilities (or Humor)
-- **Version**: 2.3.0
+- **Version**: 3.0.0
 
 ### Detailed Description
 ```text
@@ -98,7 +98,8 @@ SNSを深刻に捉えすぎず、気楽に付き合うための小さな道具�
 ---
 
 ## バージョン履歴 (Version History)
-- **v2.3.0** (2026-10-22):
+- **v3.0.0** (2026-10-23):
+  - 拡張機能の正式名称を「Comic Sans SM」へ刷新
   - YouTubeライブチャット（リアルタイムコメント）のComic Sansおよび虹色ワードアート表示に対応
 - **v2.2.0** (2026-10-16):
   - 対象サイトをX（Twitter）とYouTubeに整理
