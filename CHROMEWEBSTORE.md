@@ -26,11 +26,12 @@ Chrome Web Store公開用メタデータおよび掲載情報です。
 ```text
 Social media was never meant to be taken this seriously.
 
-Scrolling through your timeline, it is easy to get caught up in heated arguments, intense rhetoric, and endless debates. This extension was created as a gentle reminder to take a step back and view it all with a lighter heart.
+In the physical world, handwritten notes carry emotional cues—frantic scribbles or erratic handwriting naturally tip you off that someone might not be in the best state of mind.
+On social media, however, even the most unhinged rant is rendered in crisp, beautiful, and pristine typography. Elegant fonts lend an unearned illusion of sanity, intellect, and authority to words that deserve none of them.
 
 "Comic Sans SM" quietly replaces the display font on X (Twitter) and YouTube with Comic Sans MS.
 
-Seeing intense or dramatic words rendered in Comic Sans takes the edge off instantly. It is a modest tool to help you breathe a little easier and not take the internet so personally.
+By replacing that polished facade with Comic Sans, the false authority is instantly stripped away. Words are brought back down to their true, modest weight—helping you take a step back, breathe a little easier, and view the internet with a lighter heart.
 
 Key Features:
 - Comic Sans MS Override:
@@ -68,13 +69,13 @@ Key Features:
 ```text
 ソーシャルメディアなんて、そんなに真面目に読む物でもないはずです。
 
-タイムラインを眺めていると、どうしても強い言葉や深刻そうな議論に気を取られてしまいがちです。
-文字通りの意味を重く受け止めすぎず、少し距離を置いて眺めるために、この拡張機能を作りました。
+手書きの文字であれば、筆跡の乱れや殴り書きから「この人は今ちょっと精神的に危うい状態なのかもしれない」と察して距離を取ることができます。
+しかしソーシャルメディアでは、どんなに偏った言葉や危うい主張であっても、デザイナーが作った美しく洗練されたシステムフォントで均等にタイポグラフィされてしまいます。そのせいで、本来なら真に受ける必要のない言葉まで、まるで理知的で重みのある意見であるかのように錯覚してしまうのです。
 
 「Comic Sans SM」は、X（Twitter）やYouTubeの表示フォントを「Comic Sans MS」に置き換えます。
 
-見慣れたタイムラインの文字がComic Sansになるだけで、画面全体の緊張感が少し和らぎます。
-SNSを深刻に捉えすぎず、気楽に付き合うための小さな道具としてお使いください。
+見慣れたタイムラインの文字がComic Sansになるだけで、フォントがまとっていた過剰な権威や化粧が剥ぎ取られ、言葉が持つ「本来の軽さ」が見えてきます。
+SNSを深刻に捉えすぎず、気楽に付き合うための小さなデジタル・フィルターとしてお使いください。
 
 主な機能:
 - Comic Sans MS への置き換え:

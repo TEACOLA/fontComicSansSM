@@ -9,9 +9,10 @@ Quietly replaces the display font on X (Twitter) and YouTube with **Comic Sans M
 
 Social media was never meant to be taken this seriously.
 
-Scrolling through your timeline, it is easy to get caught up in harsh words, heated rhetoric, and endless debates. Seeing those same words rendered in Comic Sans takes the edge off instantly.
+In the physical world, handwritten notes carry emotional cues—frantic scribbles or erratic handwriting naturally tip you off that someone might not be in the best state of mind.
+On social media, however, even the most unhinged rant is rendered in crisp, beautiful, and pristine typography. Elegant fonts lend an unearned illusion of sanity, intellect, and authority to words that deserve none of them.
 
-It is a modest tool to help you take a step back, breathe a little easier, and view the internet with a lighter heart.
+By replacing that polished facade with Comic Sans, the false authority is instantly stripped away. Words are brought back down to their true, modest weight—helping you take a step back, breathe a little easier, and view the internet with a lighter heart.
 
 ---
 
