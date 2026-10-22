@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "default_locale": "en",
   "name": "__MSG_appName__",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "__MSG_appDesc__",
   "permissions": [
     "storage"
@@ -36,7 +36,8 @@
         "*://*.youtube.com/*"
       ],
       "js": ["content.js"],
-      "run_at": "document_start"
+      "run_at": "document_start",
+      "all_frames": true
     }
   ]
 }

@@ -1,4 +1,4 @@
-# Chrome Web Store Listing: fontComicSansSM
+# Chrome Web Store Listing: Comic Sans SM
 
 Chrome Web Store公開用メタデータおよび掲載情報です。
 本拡張機能は **英語（デフォルト / プライマリ言語）** と **日本語** の2言語で公開します。
@@ -13,13 +13,13 @@ Chrome Web Store公開用メタデータおよび掲載情報です。
 ## 1. 英語（English - Default Language）
 
 ### Basic Info
-- **Name**: `fontComicSansSM`
+- **Name**: `Comic Sans SM`
 - **Short Description** (108/132 chars):
   ```text
   A quiet reminder not to take social media too seriously. Replaces fonts on X and YouTube with Comic Sans MS.
   ```
 - **Category**: Lifestyle / Utilities (or Humor)
-- **Version**: 2.2.0
+- **Version**: 2.3.0
 
 ### Detailed Description
 ```text
@@ -27,7 +27,7 @@ Social media was never meant to be taken this seriously.
 
 Scrolling through your timeline, it is easy to get caught up in heated arguments, intense rhetoric, and endless debates. This extension was created as a gentle reminder to take a step back and view it all with a lighter heart.
 
-"fontComicSansSM" quietly replaces the display font on X (Twitter) and YouTube with Comic Sans MS.
+"Comic Sans SM" quietly replaces the display font on X (Twitter) and YouTube with Comic Sans MS.
 
 Seeing intense or dramatic words rendered in Comic Sans takes the edge off instantly. It is a modest tool to help you breathe a little easier and not take the internet so personally.
 
@@ -56,7 +56,7 @@ Key Features:
 ## 2. 日本語（Japanese）
 
 ### 基本情報
-- **拡張機能名**: `fontComicSansSM`
+- **拡張機能名**: `Comic Sans SM`
 - **短い説明** (58/132文字):
   ```text
   ソーシャルメディアを真面目に読みすぎないための拡張機能。XやYouTubeのフォントをComic Sansに置き換えます
@@ -70,7 +70,7 @@ Key Features:
 タイムラインを眺めていると、どうしても強い言葉や深刻そうな議論に気を取られてしまいがちです。
 文字通りの意味を重く受け止めすぎず、少し距離を置いて眺めるために、この拡張機能を作りました。
 
-「fontComicSansSM」は、X（Twitter）やYouTubeの表示フォントを「Comic Sans MS」に置き換えます。
+「Comic Sans SM」は、X（Twitter）やYouTubeの表示フォントを「Comic Sans MS」に置き換えます。
 
 見慣れたタイムラインの文字がComic Sansになるだけで、画面全体の緊張感が少し和らぎます。
 SNSを深刻に捉えすぎず、気楽に付き合うための小さな道具としてお使いください。
@@ -98,6 +98,8 @@ SNSを深刻に捉えすぎず、気楽に付き合うための小さな道具�
 ---
 
 ## バージョン履歴 (Version History)
+- **v2.3.0** (2026-10-22):
+  - YouTubeライブチャット（リアルタイムコメント）のComic Sansおよび虹色ワードアート表示に対応
 - **v2.2.0** (2026-10-16):
   - 対象サイトをX（Twitter）とYouTubeに整理
   - 英語（デフォルト）および日本語の多言語公開対応

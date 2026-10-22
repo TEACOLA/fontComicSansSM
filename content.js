@@ -43,7 +43,16 @@
         [data-testid="tweetText"] a,
         #content-text,
         #content-text span,
-        yt-formatted-string#content-text {
+        yt-formatted-string#content-text,
+        #message,
+        #message span,
+        yt-formatted-string#message,
+        yt-live-chat-text-message-renderer #message,
+        yt-live-chat-text-message-renderer #message span,
+        yt-live-chat-paid-message-renderer #message,
+        yt-live-chat-paid-message-renderer #message span,
+        yt-live-chat-membership-item-renderer #message,
+        yt-live-chat-membership-item-renderer #message span {
           background-image: linear-gradient(90deg, #CC0033 0%, #CC6600 16%, #CC9900 33%, #006633 50%, #006699 66%, #003399 83%, #660099 100%) !important;
           -webkit-background-clip: text !important;
           background-clip: text !important;
@@ -54,7 +63,15 @@
 
         /* Prevent image/svg emojis from vanishing */
         [data-testid="tweetText"] img,
-        [data-testid="tweetText"] svg {
+        [data-testid="tweetText"] svg,
+        #content-text img,
+        #content-text svg,
+        #message img,
+        #message svg,
+        yt-live-chat-text-message-renderer img,
+        yt-live-chat-paid-message-renderer img,
+        img.emoji,
+        .yt-emoji-icon {
           -webkit-text-fill-color: initial !important;
           color: initial !important;
         }
@@ -68,7 +85,8 @@
         a:link,
         a:link *,
         [data-testid="tweetText"] a,
-        #content-text a {
+        #content-text a,
+        #message a {
           color: #0000FF !important;
           text-decoration: underline !important;
           cursor: pointer !important;
@@ -77,7 +95,8 @@
         a:visited,
         a:visited *,
         [data-testid="tweetText"] a:visited,
-        #content-text a:visited {
+        #content-text a:visited,
+        #message a:visited {
           color: #660099 !important;
         }
 
@@ -103,11 +122,22 @@
       [data-testid="primaryColumn"],
       [data-testid="primaryColumn"] span,
       [data-testid="cellInnerDiv"] span,
-      /* YouTube comments & titles */
+      /* YouTube comments & titles & Live Chat */
       #content-text,
       #content-text *,
       ytd-comment-view-model,
-      yt-formatted-string {
+      yt-formatted-string,
+      yt-live-chat-renderer,
+      yt-live-chat-text-message-renderer,
+      yt-live-chat-text-message-renderer *,
+      yt-live-chat-paid-message-renderer,
+      yt-live-chat-paid-message-renderer *,
+      yt-live-chat-membership-item-renderer,
+      yt-live-chat-membership-item-renderer *,
+      #message,
+      #message *,
+      #author-name,
+      yt-live-chat-author-chip {
         font-family: ${fontFamily} !important;
         letter-spacing: 0.05em !important;
       }

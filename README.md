@@ -1,4 +1,4 @@
-# fontComicSansSM
+# Comic Sans SM
 
 A Chrome extension designed to help you not take social media so seriously.  
 Quietly replaces the display font on X (Twitter) and YouTube with **Comic Sans MS**.
