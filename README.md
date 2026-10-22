@@ -41,5 +41,6 @@ It is a modest tool to help you take a step back, breathe a little easier, and v
 
 ## Links
 
+- **Chrome Web Store**: [https://chromewebstore.google.com/detail/fontcomicsanssm/jcklbddlopaaifbclbebocgopndihjhi](https://chromewebstore.google.com/detail/fontcomicsanssm/jcklbddlopaaifbclbebocgopndihjhi)
 - **Official Page & Privacy Policy**: [https://teacola.github.io/fontComicSansSM/](https://teacola.github.io/fontComicSansSM/)
 - **GitHub Repository**: [https://github.com/TEACOLA/fontComicSansSM](https://github.com/TEACOLA/fontComicSansSM)

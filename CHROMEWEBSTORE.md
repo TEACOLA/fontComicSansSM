@@ -4,6 +4,7 @@ Chrome Web Store公開用メタデータおよび掲載情報です。
 本拡張機能は **英語（デフォルト / プライマリ言語）** と **日本語** の2言語で公開します。
 
 ### ストア申請用 URL
+- **Store URL**: `https://chromewebstore.google.com/detail/fontcomicsanssm/jcklbddlopaaifbclbebocgopndihjhi`
 - **Homepage URL**: `https://teacola.github.io/fontComicSansSM/`
 - **Privacy Policy URL**: `https://teacola.github.io/fontComicSansSM/#privacy`
 - **Repository URL**: `https://github.com/TEACOLA/fontComicSansSM`
