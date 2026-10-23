@@ -252,3 +252,35 @@ fieldset.bevel-inset {
   text-shadow: 0 0 2px #00FF00;
   user-select: none;
 }
+
+/* ゾロ目 (Repdigit) Retro Blink Animation */
+.counter-odometer.zorome-blink {
+  border-color: #FF0000;
+  box-shadow: 0 0 6px rgba(255, 0, 0, 0.6);
+}
+
+.counter-odometer.zorome-blink .counter-digit {
+  color: #FFFF00;
+  background: linear-gradient(180deg, #330000 0%, #110000 48%, #440000 52%, #110000 100%);
+  border-color: #FF0000;
+  text-shadow: 0 0 4px #FFFF00, 0 0 8px #FF0000;
+  animation: retro-zorome-blink 0.5s step-end infinite;
+}
+
+@keyframes retro-zorome-blink {
+  0%, 49% {
+    opacity: 1;
+    filter: brightness(1.3);
+  }
+  50%, 100% {
+    opacity: 0.15;
+    filter: brightness(0.5);
+  }
+}
+
+.counter-suffix.zorome-text {
+  color: #CC0033 !important;
+  font-weight: bold;
+  animation: retro-zorome-blink 0.5s step-end infinite;
+}
+

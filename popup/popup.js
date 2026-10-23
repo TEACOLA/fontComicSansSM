@@ -11,23 +11,50 @@ document.addEventListener('DOMContentLoaded', async () => {
   // 90s Access Counter Setup
   const uiLang = (chrome.i18n.getUILanguage() || navigator.language || '').toLowerCase();
   const isJa = uiLang.startsWith('ja');
-  if (isJa) {
-    if (counterPrefix) counterPrefix.textContent = 'あなたは';
-    if (counterSuffix) counterSuffix.textContent = '人目の訪問者です';
-  } else {
-    if (counterPrefix) counterPrefix.textContent = 'VISITOR:';
-    if (counterSuffix) counterSuffix.textContent = '';
+
+  // Check for repeated digits (ゾロ目: 11, 22, 33... 777...)
+  function isZorome(num) {
+    const s = String(num);
+    return s.length >= 2 && /^(\d)\1+$/.test(s);
   }
 
   function renderCounter(num) {
     if (!counterDisplay) return;
     const str = String(num).padStart(6, '0');
     counterDisplay.innerHTML = '';
+    const hitZorome = isZorome(num);
+
+    counterDisplay.classList.toggle('zorome-blink', hitZorome);
+
     for (const ch of str) {
       const span = document.createElement('span');
       span.className = 'counter-digit';
       span.textContent = ch;
       counterDisplay.appendChild(span);
+    }
+
+    if (isJa) {
+      if (counterPrefix) counterPrefix.textContent = 'あなたは';
+      if (counterSuffix) {
+        if (hitZorome) {
+          counterSuffix.textContent = '人目 ★ ゾロ目GET! ★';
+          counterSuffix.classList.add('zorome-text');
+        } else {
+          counterSuffix.textContent = '人目の訪問者です';
+          counterSuffix.classList.remove('zorome-text');
+        }
+      }
+    } else {
+      if (counterPrefix) counterPrefix.textContent = 'VISITOR:';
+      if (counterSuffix) {
+        if (hitZorome) {
+          counterSuffix.textContent = ' ★ LUCKY!! ★';
+          counterSuffix.classList.add('zorome-text');
+        } else {
+          counterSuffix.textContent = '';
+          counterSuffix.classList.remove('zorome-text');
+        }
+      }
     }
   }
 
