@@ -75,6 +75,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     "You've got mail!",
     "Don't feed the trolls",
     'kita---(*ﾟ∀ﾟ*)---!!',
+    'orz',
     ':-)'
   ];
 
