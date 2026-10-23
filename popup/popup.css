@@ -209,25 +209,46 @@ fieldset.bevel-inset {
   flex: 1;
 }
 
-/* Status Bar */
-.status-bar {
+/* Retro Access Counter (Web 1.0 Odometer Style) */
+.counter-box {
   display: flex;
-  gap: 2px;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 4px 6px;
+  background-color: var(--ws-gray-light);
+  margin-top: 4px;
 }
 
-.bevel-inset-status {
-  padding: 2px 4px;
+.counter-prefix,
+.counter-suffix {
+  font-size: 10px;
+  font-weight: bold;
+  color: var(--ws-gray-deep);
+  white-space: nowrap;
+}
+
+.counter-odometer {
+  display: inline-flex;
+  gap: 1px;
+  background: #000000;
+  padding: 2px;
   border: 1px solid;
   border-color: var(--ws-gray-dark) var(--ws-white) var(--ws-white) var(--ws-gray-dark);
 }
 
-.status-bar-field {
-  font-size: 10px;
-  color: var(--ws-gray-deep);
-}
-
-.status-right {
-  margin-left: auto;
+.counter-digit {
+  display: inline-block;
+  width: 13px;
+  height: 18px;
+  line-height: 18px;
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 14px;
   font-weight: bold;
-  color: var(--ws-green);
+  color: #00FF00;
+  background: linear-gradient(180deg, #111111 0%, #000000 48%, #1a1a1a 52%, #000000 100%);
+  border: 1px solid #222222;
+  text-shadow: 0 0 2px #00FF00;
+  user-select: none;
 }

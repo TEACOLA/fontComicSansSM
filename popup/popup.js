@@ -4,7 +4,39 @@ document.addEventListener('DOMContentLoaded', async () => {
   const wordArtCheck = document.getElementById('wordArtCheck');
   const retroLinkCheck = document.getElementById('retroLinkCheck');
   const previewText = document.getElementById('previewText');
-  const statusMessage = document.getElementById('statusMessage');
+  const counterDisplay = document.getElementById('counterDisplay');
+  const counterPrefix = document.getElementById('counterPrefix');
+  const counterSuffix = document.getElementById('counterSuffix');
+
+  // 90s Access Counter Setup
+  const uiLang = (chrome.i18n.getUILanguage() || navigator.language || '').toLowerCase();
+  const isJa = uiLang.startsWith('ja');
+  if (isJa) {
+    if (counterPrefix) counterPrefix.textContent = 'あなたは';
+    if (counterSuffix) counterSuffix.textContent = '人目の訪問者です';
+  } else {
+    if (counterPrefix) counterPrefix.textContent = 'VISITOR:';
+    if (counterSuffix) counterSuffix.textContent = '';
+  }
+
+  function renderCounter(num) {
+    if (!counterDisplay) return;
+    const str = String(num).padStart(6, '0');
+    counterDisplay.innerHTML = '';
+    for (const ch of str) {
+      const span = document.createElement('span');
+      span.className = 'counter-digit';
+      span.textContent = ch;
+      counterDisplay.appendChild(span);
+    }
+  }
+
+  // Count access each time popup opens
+  chrome.storage.local.get(['popupAccessCount'], (result) => {
+    const newCount = (result.popupAccessCount || 0) + 1;
+    chrome.storage.local.set({ popupAccessCount: newCount });
+    renderCounter(newCount);
+  });
 
   const siteCheckboxes = {
     'x.com': document.getElementById('site-x'),
@@ -53,8 +85,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // Update UI components
   function updateUI() {
-    statusMessage.textContent = 'Comic Sans: ACTIVE';
-
     wordArtCheck.checked = !!currentSettings.wordArtEffect;
     retroLinkCheck.checked = currentSettings.retroLinkEffect !== false;
 
