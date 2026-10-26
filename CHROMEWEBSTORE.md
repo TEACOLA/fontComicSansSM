@@ -20,7 +20,7 @@ Chrome Web Store公開用メタデータおよび掲載情報です。
   A quiet reminder not to take social media too seriously. Replaces fonts on X and YouTube with Comic Sans MS.
   ```
 - **Category**: Lifestyle / Utilities (or Humor)
-- **Version**: 3.0.0
+- **Version**: 3.1.0
 
 ### Detailed Description
 ```text
@@ -100,6 +100,9 @@ SNSを深刻に捉えすぎず、気楽に付き合うための小さなデジ�
 ---
 
 ## バージョン履歴 (Version History)
+- **v3.1.0** (2026-10-26):
+  - ポップアップ最下部に90年代風アクセスカウンターを追加（ゾロ目で点滅する演出付き）
+  - プレビュー文言に「orz」を追加
 - **v3.0.0** (2026-10-23):
   - 拡張機能の正式名称を「Comic Sans SM」へ刷新
   - YouTubeライブチャット（リアルタイムコメント）のComic Sansおよび虹色ワードアート表示に対応
