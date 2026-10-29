@@ -36,7 +36,79 @@ def write_png(filename, width, height, pixels):
     with open(filename, "wb") as f:
         f.write(png_bytes)
 
+def generate_netscape_s_icon_16():
+    """
+    16x16 pixel-perfect icon prioritizing maximum readability of the letter 'S'.
+    Maintains the Netscape aesthetic (night sky, teal horizon, subtle star, beveled frame)
+    while ensuring the letter 'S' has high contrast, bold presence, and open apertures/counters.
+    """
+    c_sky_dark   = (0, 0, 51, 255)       # #000033
+    c_sky_blue   = (0, 0, 102, 255)      # #000066
+    c_sea_dark   = (0, 51, 51, 255)      # #003333
+    c_sea_mid    = (0, 102, 102, 255)    # #006666
+    c_sea_light  = (0, 153, 153, 255)    # #009999
+    c_sea_bright = (0, 204, 204, 255)    # #00CCCC
+    c_star       = (255, 255, 153, 255)  # #FFFF99
+    c_white      = (255, 255, 255, 255)  # #FFFFFF
+    c_frame_high = (204, 204, 204, 255)  # #CCCCCC
+    c_frame_low  = (51, 51, 51, 255)     # #333333
+
+    pixels = [[c_sky_dark for _ in range(16)] for _ in range(16)]
+
+    # 1. Background: Night sky gradient and horizon (placed below S to maximize contrast)
+    for y in range(16):
+        for x in range(16):
+            if y < 4:
+                pixels[y][x] = c_sky_dark
+            elif y < 12:
+                pixels[y][x] = c_sky_blue
+            elif y == 12:
+                pixels[y][x] = c_sea_bright if (3 <= x <= 12) else c_sea_light
+            elif y == 13:
+                pixels[y][x] = c_sea_mid
+            else:
+                pixels[y][x] = c_sea_dark
+
+    # 2. Beveled window border (Netscape 3D button frame)
+    for y in range(16):
+        for x in range(16):
+            if y == 0 or (x == 0 and y < 15):
+                pixels[y][x] = c_frame_high
+            elif y == 15 or x == 15:
+                pixels[y][x] = c_frame_low
+
+    # 3. Single accent star in top-right (non-interfering with S)
+    pixels[2][13] = c_star
+
+    # 4. Pixel-crafted bold 'S' (9x10, perfectly centered and balanced with open counters)
+    s_coords = [
+        # Top bar
+        (4, 2), (5, 2), (6, 2), (7, 2), (8, 2), (9, 2), (10, 2),
+        # Upper curve & terminal beak
+        (3, 3), (4, 3), (10, 3), (11, 3),
+        # Upper-left spine
+        (3, 4), (4, 4),
+        (3, 5), (4, 5),
+        # Center transition bar
+        (3, 6), (4, 6), (5, 6), (6, 6), (7, 6), (8, 6), (9, 6),
+        (5, 7), (6, 7), (7, 7), (8, 7), (9, 7), (10, 7), (11, 7),
+        # Lower-right spine
+        (10, 8), (11, 8),
+        (10, 9), (11, 9),
+        # Lower curve & terminal beak
+        (3, 10), (4, 10), (10, 10), (11, 10),
+        # Bottom bar
+        (4, 11), (5, 11), (6, 11), (7, 11), (8, 11), (9, 11), (10, 11),
+    ]
+
+    for x, y in s_coords:
+        pixels[y][x] = c_white
+
+    return pixels
+
 def generate_netscape_s_icon(size):
+    if size == 16:
+        return generate_netscape_s_icon_16()
     # Web Safe Palette
     c_sky_dark   = (0, 0, 51, 255)       # #000033
     c_sky_blue   = (0, 0, 102, 255)      # #000066

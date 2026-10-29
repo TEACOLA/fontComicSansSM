@@ -18,14 +18,8 @@ chrome.runtime.onInstalled.addListener(async () => {
   if (!stored.dasaiSettings) {
     await chrome.storage.sync.set({ dasaiSettings: DEFAULT_SETTINGS });
   }
-  updateBadge();
+  await chrome.action.setBadgeText({ text: '' });
 });
 
-// Update badge status (Always ON)
-async function updateBadge() {
-  await chrome.action.setBadgeText({ text: 'S' });
-  await chrome.action.setBadgeBackgroundColor({ color: '#000066' }); // Web safe Netscape navy
-}
-
-// Ensure badge is set when Service Worker starts up
-updateBadge();
+// Ensure badge is cleared when Service Worker starts up
+chrome.action.setBadgeText({ text: '' });
